@@ -4,23 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Baby Shower</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
-    rel="stylesheet"
-  />
+  <!-- Fuente cursiva -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+  <!-- Navegación -->
   <div class="controls">
     <button class="btn btn--portada"    data-index="0"><span class="icon">🏠</span><span>Portada</span></button>
     <button class="btn btn--bienvenida" data-index="1"><span class="icon">🎉</span><span>Bienvenida</span></button>
     <button class="btn btn--direccion"  data-index="2"><span class="icon">📍</span><span>Dirección</span></button>
   </div>
 
+  <!-- Slider -->
   <div class="slider">
+    <!-- Imagen Portada / Bienvenida -->
     <img id="slide" src="img/portada.png" alt="Portada Baby Shower">
 
+    <!-- Texto Bienvenida -->
     <div id="welcome-text">
       <p>¡Hola, familia y amigos!<br>
       Qué emoción tenerlos aquí para compartir risas, juegos y antojos de panza.</p>
@@ -28,6 +30,7 @@
       ¡Sin ustedes este baby shower no sería tan divertido!</p>
     </div>
 
+    <!-- Mapa Dirección -->
     <div id="map-container">
       <div class="address-text">
         <p>Sector El Pantanito<br>
@@ -44,8 +47,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Aquí corregimos el nombre a minúscula
-      const slides = ['img/portada.png', 'img/bienvenida.png'];
+      const slides = ['img/portada.png','img/bienvenida.png'];
       let current = 0;
       const imgEl     = document.getElementById('slide');
       const welcomeEl = document.getElementById('welcome-text');
@@ -56,29 +58,28 @@
         imgEl.style.display     = 'none';
         welcomeEl.style.display = 'none';
         mapEl.style.display     = 'none';
-
         if (idx === 2) {
           mapEl.style.display = 'block';
         } else {
           imgEl.src = slides[idx];
-          imgEl.classList.toggle('relief', idx === 1);
+          imgEl.classList.toggle('relief', idx===1);
           imgEl.style.display = 'block';
           if (idx === 1) welcomeEl.style.display = 'block';
         }
       }
 
-      buttons.forEach(btn =>
-        btn.addEventListener('click', () => {
+      buttons.forEach(btn=>{
+        btn.addEventListener('click',()=>{
           const idx = +btn.dataset.index;
-          if (idx === current) return;
-          if (current !== 2) imgEl.style.opacity = 0;
-          setTimeout(() => {
+          if (idx===current) return;
+          if (current!==2) imgEl.style.opacity = 0;
+          setTimeout(()=>{
             current = idx;
             showSlide(idx);
-            if (idx !== 2) imgEl.style.opacity = 1;
-          }, 500);
-        })
-      );
+            if (idx!==2) imgEl.style.opacity = 1;
+          },500);
+        });
+      });
 
       showSlide(0);
     });

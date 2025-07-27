@@ -18,11 +18,9 @@
     <button class="btn btn--direccion"  data-index="2"><span class="icon">📍</span><span>Dirección</span></button>
   </div>
 
-
   <div class="slider">
     <img id="slide" src="img/portada.png" alt="Portada Baby Shower">
 
- 
     <div id="welcome-text">
       <p>¡Hola, familia y amigos!<br>
       Qué emoción tenerlos aquí para compartir risas, juegos y antojos de panza.</p>
@@ -30,7 +28,6 @@
       ¡Sin ustedes este baby shower no sería tan divertido!</p>
     </div>
 
- 
     <div id="map-container">
       <div class="address-text">
         <p>Sector El Pantanito<br>
@@ -47,7 +44,8 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const slides = ['img/portada.png', 'img/Bienvenida.png'];
+      // Aquí corregimos el nombre a minúscula
+      const slides = ['img/portada.png', 'img/bienvenida.png'];
       let current = 0;
       const imgEl     = document.getElementById('slide');
       const welcomeEl = document.getElementById('welcome-text');

@@ -1,85 +1,177 @@
 /* Reset y full-height */
-* { box-sizing:border-box; margin:0; padding:0; }
-html, body { height:100%; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+}
 
 /* Body centrado con marca de agua */
 body {
-  display:flex; flex-direction:column; align-items:center;
-  justify-content:center; min-height:100vh;
-  font-family:sans-serif; text-align:center; padding:20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
   background:
     #fafafa url('img/fondo.png') no-repeat center center fixed;
-  background-size:cover;
+  background-size: cover;
 }
 
 /* Botones “píldora” */
 .controls {
-  display:flex; flex-wrap:wrap; justify-content:center;
-  gap:8px; margin-bottom:16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
 }
 .btn {
-  display:inline-flex; align-items:center;
-  border:none; cursor:pointer; border-radius:25px;
-  font-size:.9rem; font-weight:500; overflow:hidden;
-  transition:opacity .2s;
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+  font-size: .9rem;
+  font-weight: 500;
+  overflow: hidden;
+  transition: opacity .2s;
 }
 .btn .icon {
-  width:36px; height:36px; display:flex; justify-content:center;
-  background:#fff; font-size:1.2rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  font-size: 1.2rem;
 }
-.btn span:last-child { padding:0 12px; color:#fff; }
-.btn--portada    { background:#4CAF50; }
-.btn--bienvenida { background:#2196F3; }
-.btn--direccion  { background:#FF9800; }
-.btn:hover       { opacity:.8; }
+.btn span:last-child {
+  padding: 0 12px;
+  color: #fff;
+}
+.btn--portada    { background: #4CAF50; }
+.btn--bienvenida { background: #2196F3; }
+.btn--direccion  { background: #FF9800; }
+.btn:hover       { opacity: .8; }
 
 /* Slider adaptativo */
 .slider {
-  position:relative; width:90vw; max-width:600px;
-  margin-bottom:16px; box-shadow:0 8px 24px rgba(0,0,0,.15);
-  border-radius:12px; overflow:hidden; background:#fff;
+  position: relative;
+  width: 90vw;
+  max-width: 600px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
 }
 
 /* Imagen siempre completa */
 .slider img {
-  display:block; width:100%; height:auto;
-  border-radius:12px 12px 0 0;
-  transition:opacity .5s ease,transform .3s ease;
-  opacity:1;
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px 12px 0 0;
+  transition: opacity .5s ease, transform .3s ease;
+  opacity: 1;
 }
-.slider img:hover { transform:scale(1.02); }
+.slider img:hover {
+  transform: scale(1.02);
+}
 
 /* Texto Bienvenida */
 #welcome-text {
-  display:none; position:absolute; top:50%; left:50%;
-  transform:translate(-50%,-50%);
-  background:rgba(255,255,255,.3); padding:16px 20px;
-  border-radius:12px; max-width:85%; z-index:2;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: rgba(255,255,255,.3);
+  padding: 16px 20px;
+  border-radius: 12px;
+  max-width: 85%;
+  z-index: 2;
 }
 #welcome-text p {
-  margin:.4em 0; font-family:'Great Vibes',cursive;
-  font-size:1.8rem; color:#4a4a4a;
-  text-shadow:1px 1px 2px rgba(0,0,0,.2);
-  line-height:1.2;
+  margin: .4em 0;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  color: #4a4a4a;
+  text-shadow: 1px 1px 2px rgba(0,0,0,.2);
+  line-height: 1.2;
 }
-#welcome-text p+p { font-size:1.3rem; }
+#welcome-text p + p {
+  font-size: 1.3rem;
+}
 
 /* Contenedor Mapa */
 #map-container {
-  display:none; width:100%;
+  display: none;
+  width: 100%;
 }
 #map-container .address-text {
-  padding:12px; font-size:1rem; color:#333;
-  background:rgba(255,255,255,.8);
+  padding: 12px;
+  font-size: 1rem;
+  color: #333;
+  background: rgba(255,255,255,.8);
 }
 #map-container iframe {
-  display:block; width:100%; height:350px; border:0;
-  border-bottom-left-radius:12px;
-  border-bottom-right-radius:12px;
+  display: block;
+  width: 100%;
+  height: 350px;
+  border: 0;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 /* Relief Bienvenida */
 img.relief {
-  box-shadow:0 8px 16px rgba(0,0,0,.2), inset 0 2px 4px rgba(255,255,255,.5);
-  border-radius:8px; transition:box-shadow .3s ease;
+  box-shadow:
+    0 8px 16px rgba(0,0,0,.2),
+    inset 0 2px 4px rgba(255,255,255,.5);
+  border-radius: 8px;
+  transition: box-shadow .3s ease;
+}
+
+/* === Overrides para móviles pequeños === */
+@media (max-width: 600px) {
+  /* Elimina padding lateral para full‑bleed */
+  body {
+    padding: 0;
+  }
+  /* Slider full‑width sin máximo fijo */
+  .slider {
+    width: 100vw;
+    max-width: none;
+    margin-bottom: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  /* Imagen crece al 100% de ancho */
+  .slider img {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+  /* Ajustes al texto de bienvenida */
+  #welcome-text {
+    max-width: 90vw;
+    padding: 12px 16px;
+  }
+  #welcome-text p {
+    font-size: 2rem;
+  }
+  #welcome-text p + p {
+    font-size: 1.5rem;
+  }
+  /* Mapa un poco más alto si cabe */
+  #map-container iframe {
+    height: 400px;
+  }
 }

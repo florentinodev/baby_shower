@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Baby Shower</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="controls">
+    <button class="btn btn--portada"    data-index="0"><span class="icon">🏠</span><span>Portada</span></button>
+    <button class="btn btn--bienvenida" data-index="1"><span class="icon">🎉</span><span>Bienvenida</span></button>
+    <button class="btn btn--direccion"  data-index="2"><span class="icon">📍</span><span>Dirección</span></button>
+  </div>
+
+
+  <div class="slider">
+    <img id="slide" src="img/portada.png" alt="Portada Baby Shower">
+
+ 
+    <div id="welcome-text">
+      <p>¡Hola, familia y amigos!<br>
+      Qué emoción tenerlos aquí para compartir risas, juegos y antojos de panza.</p>
+      <p>Mil gracias por venir<br>
+      ¡Sin ustedes este baby shower no sería tan divertido!</p>
+    </div>
+
+ 
+    <div id="map-container">
+      <div class="address-text">
+        <p>Sector El Pantanito<br>
+           Calle Los Guindos 101‑B</p>
+      </div>
+      <iframe
+        src="https://www.google.com/maps?q=-34.185974,-70.648199&hl=es&z=15&output=embed"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const slides = ['img/portada.png', 'img/Bienvenida.png'];
+      let current = 0;
+      const imgEl     = document.getElementById('slide');
+      const welcomeEl = document.getElementById('welcome-text');
+      const mapEl     = document.getElementById('map-container');
+      const buttons   = document.querySelectorAll('.controls button');
+
+      function showSlide(idx) {
+        imgEl.style.display     = 'none';
+        welcomeEl.style.display = 'none';
+        mapEl.style.display     = 'none';
+
+        if (idx === 2) {
+          mapEl.style.display = 'block';
+        } else {
+          imgEl.src = slides[idx];
+          imgEl.classList.toggle('relief', idx === 1);
+          imgEl.style.display = 'block';
+          if (idx === 1) welcomeEl.style.display = 'block';
+        }
+      }
+
+      buttons.forEach(btn =>
+        btn.addEventListener('click', () => {
+          const idx = +btn.dataset.index;
+          if (idx === current) return;
+          if (current !== 2) imgEl.style.opacity = 0;
+          setTimeout(() => {
+            current = idx;
+            showSlide(idx);
+            if (idx !== 2) imgEl.style.opacity = 1;
+          }, 500);
+        })
+      );
+
+      showSlide(0);
+    });
+  </script>
+
+</body>
+</html>

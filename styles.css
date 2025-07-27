@@ -1,141 +1,85 @@
-/* === Reset y full‑height === */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-html, body {
-  height: 100%;
-}
+/* Reset y full-height */
+* { box-sizing:border-box; margin:0; padding:0; }
+html, body { height:100%; }
 
-/* === Body: centrado completo y marca de agua === */
+/* Body centrado con marca de agua */
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  font-family: sans-serif;
-  text-align: center;
-  padding: 20px;
+  display:flex; flex-direction:column; align-items:center;
+  justify-content:center; min-height:100vh;
+  font-family:sans-serif; text-align:center; padding:20px;
   background:
-    #fafafa
-    url('img/fondo.png') no-repeat center center fixed;
-  background-size: cover;
+    #fafafa url('img/fondo.png') no-repeat center center fixed;
+  background-size:cover;
 }
 
-/* === Botones píldora con iconos === */
+/* Botones “píldora” */
 .controls {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 16px;
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap:8px; margin-bottom:16px;
 }
 .btn {
-  display: inline-flex;
-  align-items: center;
-  border: none;
-  cursor: pointer;
-  border-radius: 25px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  overflow: hidden;
-  transition: opacity 0.2s;
+  display:inline-flex; align-items:center;
+  border:none; cursor:pointer; border-radius:25px;
+  font-size:.9rem; font-weight:500; overflow:hidden;
+  transition:opacity .2s;
 }
 .btn .icon {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  font-size: 1.2rem;
+  width:36px; height:36px; display:flex; justify-content:center;
+  background:#fff; font-size:1.2rem;
 }
-.btn span:last-child {
-  padding: 0 12px;
-  color: #fff;
-}
-.btn--portada    { background: #4CAF50; }
-.btn--bienvenida { background: #2196F3; }
-.btn--direccion  { background: #FF9800; }
-.btn:hover       { opacity: 0.8; }
+.btn span:last-child { padding:0 12px; color:#fff; }
+.btn--portada    { background:#4CAF50; }
+.btn--bienvenida { background:#2196F3; }
+.btn--direccion  { background:#FF9800; }
+.btn:hover       { opacity:.8; }
 
-/* === Slider: ancho 90vw, hasta 600px, adaptativo en alto === */
+/* Slider adaptativo */
 .slider {
-  position: relative;
-  width: 90vw;          /* ocupa 90% de ancho de ventana */
-  max-width: 600px;     /* no crece más allá de 600px */
-  margin-bottom: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-  border-radius: 12px;
-  overflow: hidden;
-  background: #fff;
+  position:relative; width:90vw; max-width:600px;
+  margin-bottom:16px; box-shadow:0 8px 24px rgba(0,0,0,.15);
+  border-radius:12px; overflow:hidden; background:#fff;
 }
 
-/* Imagen del slider, siempre completa */
+/* Imagen siempre completa */
 .slider img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 12px 12px 0 0;
-  transition: opacity 0.5s ease, transform 0.3s ease;
-  opacity: 1;
+  display:block; width:100%; height:auto;
+  border-radius:12px 12px 0 0;
+  transition:opacity .5s ease,transform .3s ease;
+  opacity:1;
 }
-.slider img:hover {
-  transform: scale(1.02);
-}
+.slider img:hover { transform:scale(1.02); }
 
-/* === Texto de Bienvenida translucido y cursivo === */
+/* Texto Bienvenida */
 #welcome-text {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255,255,255,0.3);
-  padding: 16px 20px;
-  border-radius: 12px;
-  max-width: 85%;
-  z-index: 2;
+  display:none; position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(255,255,255,.3); padding:16px 20px;
+  border-radius:12px; max-width:85%; z-index:2;
 }
 #welcome-text p {
-  margin: 0.4em 0;
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.8rem;      /* ligeramente más grande */
-  color: #4a4a4a;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-  line-height: 1.2;
+  margin:.4em 0; font-family:'Great Vibes',cursive;
+  font-size:1.8rem; color:#4a4a4a;
+  text-shadow:1px 1px 2px rgba(0,0,0,.2);
+  line-height:1.2;
 }
-#welcome-text p + p {
-  font-size: 1.3rem;
-}
+#welcome-text p+p { font-size:1.3rem; }
 
-/* === Contenedor del mapa (Dirección) === */
+/* Contenedor Mapa */
 #map-container {
-  display: none;
-  width: 100%;
+  display:none; width:100%;
 }
 #map-container .address-text {
-  padding: 12px;
-  font-size: 1rem;
-  color: #333;
-  background: rgba(255,255,255,0.8);
+  padding:12px; font-size:1rem; color:#333;
+  background:rgba(255,255,255,.8);
 }
 #map-container iframe {
-  display: block;
-  width: 100%;
-  height: 350px;          /* un poco más alto que antes */
-  border: 0;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
+  display:block; width:100%; height:350px; border:0;
+  border-bottom-left-radius:12px;
+  border-bottom-right-radius:12px;
 }
 
-/* === Efecto relief para “Bienvenida” (opcional) === */
+/* Relief Bienvenida */
 img.relief {
-  box-shadow:
-    0 8px 16px rgba(0,0,0,0.2),
-    inset 0 2px 4px rgba(255,255,255,0.5);
-  border-radius: 8px;
-  transition: box-shadow 0.3s ease;
+  box-shadow:0 8px 16px rgba(0,0,0,.2), inset 0 2px 4px rgba(255,255,255,.5);
+  border-radius:8px; transition:box-shadow .3s ease;
 }
